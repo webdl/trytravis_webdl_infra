@@ -1,6 +1,6 @@
 dist: trusty
 sudo: required
-langoage: bash
+language: bash
 before_install: curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh
   | bash
 notifications:
