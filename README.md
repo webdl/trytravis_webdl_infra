@@ -80,10 +80,15 @@ gcloud compute instances create reddit-app \
 --tags puma-server \
 --restart-on-failure \
 --zone europe-west4-a \
---metadata startup-script-url='https://raw.githubusercontent.com/Otus-DevOps-2018-09/webdl_infra/cloud-testapp/startup_script.sh'
+--metadata startup-script-url='https://raw.githubusercontent.com/Otus-DevOps-2018-09/webdl_infra/master/startup_script.sh'
 ```
-#### Данные для подключения
+### Создание правила для Firewall через gcloud
 ```
-testapp_IP = 35.204.144.232
-testapp_port = 9292 
+gcloud compute firewall-rules create default-puma-server --action allow --target-tags puma-server --source-ranges 0.0.0.0/0 --rules tcp:9292
 ```
+### Данные для подключения
+```
+testapp_IP = 35.204.234.7
+testapp_port = 9292
+```
+
