@@ -1,6 +1,6 @@
 {
    "variables": {
-      "machine_type": "f1-micro"
+      "machine_type": "f1-micro",
    },
 
    "builders":[
@@ -12,7 +12,13 @@
          "image_family":"reddit-base",
          "zone":"europe-west4-a",
          "ssh_username":"tk",
-         "machine_type":"{{user `machine_type`}}"
+         "machine_type":"{{user `machine_type`}}",
+		 
+		 "disk_size": 10.
+		 "disk_type": "pd-standard",
+		 "image_description": "Bake image for run Reddit app",
+		 "network": "default",
+		 "tags": "puma-server"
       }
    ],
 
