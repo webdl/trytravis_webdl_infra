@@ -43,3 +43,9 @@ Host someinternalhost
 bastion_IP = 35.204.92.194
 someinternalhost_IP = 10.164.0.3
 ```
+## Homework #4
+#### Данные для подключения
+```
+testapp_IP = 35.204.144.232
+testapp_port = 9292 
+```
