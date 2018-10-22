@@ -95,7 +95,7 @@ gcloud compute firewall-rules create default-puma-server --action allow --target
 ```
 ### Данные для подключения
 ```
-testapp_IP = 35.204.234.7
+testapp_IP = 35.204.144.232
 testapp_port = 9292
 ```
 
