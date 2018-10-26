@@ -43,3 +43,59 @@ Host someinternalhost
 bastion_IP = 35.204.92.194
 someinternalhost_IP = 10.164.0.3
 ```
+## Homework #4
+### Команды для запуска инстанса VM
+#### С использованием startup-script
+```
+gcloud compute instances create reddit-app \
+--boot-disk-size=10GB \
+--image-family ubuntu-1604-lts \
+--image-project=ubuntu-os-cloud \
+--machine-type=g1-small \
+--tags puma-server \
+--restart-on-failure \
+--zone europe-west4-a \
+--metadata startup-script="#! /bin/bash
+
+if [ -f /.startup_script_completed ]; then
+    exit 0
+fi
+
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+bash -c 'echo \"deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse\" > /etc/apt/sources.list.d/mongodb-org-3.2.list'
+
+apt update
+apt install -y mongodb-org ruby-full ruby-bundler build-essential
+
+systemctl start mongod.service
+systemctl enable mongod.service
+
+git clone -b monolith https://github.com/express42/reddit.git
+cd reddit
+bundle install
+puma -d
+
+touch /.startup_script_completed"
+```
+#### С использованием startup-script-url
+```
+gcloud compute instances create reddit-app \
+--boot-disk-size=10GB \
+--image-family ubuntu-1604-lts \
+--image-project=ubuntu-os-cloud \
+--machine-type=g1-small \
+--tags puma-server \
+--restart-on-failure \
+--zone europe-west4-a \
+--metadata startup-script-url='https://raw.githubusercontent.com/Otus-DevOps-2018-09/webdl_infra/master/startup_script.sh'
+```
+### Создание правила для Firewall через gcloud
+```
+gcloud compute firewall-rules create default-puma-server --action allow --target-tags puma-server --source-ranges 0.0.0.0/0 --rules tcp:9292
+```
+### Данные для подключения
+```
+testapp_IP = 35.204.144.232
+testapp_port = 9292
+```
+
