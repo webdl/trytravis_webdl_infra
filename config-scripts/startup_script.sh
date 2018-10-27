@@ -1,4 +1,9 @@
 #!/bin/bash
+
+if [ -f /.startup_script_completed ]; then
+    exit 0
+fi
+
 # Installing MongoDB, Ruby
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 bash -c 'echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.2.list'
@@ -16,3 +21,4 @@ cd reddit
 bundle install
 puma -d
 
+touch /.startup_script_completed

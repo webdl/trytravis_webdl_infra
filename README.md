@@ -56,6 +56,11 @@ gcloud compute instances create reddit-app \
 --restart-on-failure \
 --zone europe-west4-a \
 --metadata startup-script="#! /bin/bash
+
+if [ -f /.startup_script_completed ]; then
+    exit 0
+fi
+
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 bash -c 'echo \"deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse\" > /etc/apt/sources.list.d/mongodb-org-3.2.list'
 
@@ -68,7 +73,9 @@ systemctl enable mongod.service
 git clone -b monolith https://github.com/express42/reddit.git
 cd reddit
 bundle install
-puma -d"
+puma -d
+
+touch /.startup_script_completed"
 ```
 #### С использованием startup-script-url
 ```
@@ -88,7 +95,7 @@ gcloud compute firewall-rules create default-puma-server --action allow --target
 ```
 ### Данные для подключения
 ```
-testapp_IP = 35.204.234.7
+testapp_IP = 35.204.144.232
 testapp_port = 9292
 ```
 
