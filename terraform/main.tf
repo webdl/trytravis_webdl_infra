@@ -44,7 +44,7 @@ resource "google_compute_instance" "app" {
     type        = "ssh"
     user        = "appuser"
     agent       = "false"
-    private_key = "${file("~/.ssh/id_rsa")}"
+    private_key = "${file(var.private_key_path)}"
   }
 
   provisioner "file" {
