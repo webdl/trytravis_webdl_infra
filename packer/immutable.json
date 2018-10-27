@@ -27,12 +27,12 @@
     {
       "type": "file",
       "source": "files/reddit.service",
-      "destination": "~/"
+      "destination": "/tmp/reddit.service"
     },
     {
       "type": "shell",
       "inline": [
-        "sudo mv ~/reddit.service /lib/systemd/system/",
+        "sudo mv /tmp/reddit.service /lib/systemd/system/",
         "sudo chown root:root /lib/systemd/system/reddit.service",
         "sudo chmod 644 /lib/systemd/system/reddit.service",
         "sudo systemctl enable reddit.service"
