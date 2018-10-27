@@ -24,7 +24,17 @@ variable zone {
   default     = "europe-west4-a"
 }
 
-variable "count" {
+variable count {
   description = "Instances count"
   default     = 1
+}
+
+variable app_disk_image {
+  description = "Disk image for Reddit app"
+  default     = "reddit-app-base"
+}
+
+variable db_disk_image {
+  description = "Disk image for Reddit DB"
+  default     = "reddit-db-base"
 }
