@@ -123,3 +123,19 @@ cd ../config-scripts/
 ```
 ### Как проверить работоспособность:
  - Перейти по ссылке http://<EXTERNAL_IP>:9292
+
+## Homework #6
+### Задание со *
+#### Добавление нескольких ключей к проекту
+```
+resource "google_compute_project_metadata" "default" {
+  metadata {
+    ssh-keys = <<EOF
+    appuser:${file(var.public_key_path)}
+    appuser1:${file(var.public_key_path)}EOF
+  }
+}
+```
+##### Обратите внимание
+* Завершающая директива EOF не должна находиться на новой строке. Иначе в GCP будет создана пустая запись в секции SSH Keys.
+* Все добавленные ключи в секцию SSH Keys через WEB-интерфейс, которые не учтены в конфигурации Terraform - будут удалены.
