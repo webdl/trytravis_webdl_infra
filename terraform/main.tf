@@ -8,6 +8,7 @@ resource "google_compute_project_metadata" "default" {
   metadata {
     ssh-keys = "appuser1:${file(var.public_key_path)}appuser2:${file(var.public_key_path)}appuser3:${file(var.public_key_path)}"
 
+    # Использование EOF не нравится tflint!
     # ssh-keys = <<EOF
     # tk:${file(var.public_key_path)}
     # appuser:${file(var.public_key_path)}
