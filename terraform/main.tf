@@ -15,6 +15,12 @@ appuser:${file(var.public_key_path)}EOF
   }
 }
 
+module "vpc" {
+  source = "modules/vpc"
+
+  source_ranges = "${var.source_ranges}"
+}
+
 module "app" {
   source = "modules/app"
 
