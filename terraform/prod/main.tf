@@ -16,25 +16,25 @@ appuser:${file(var.public_key_path)}EOF
 }
 
 module "vpc" {
-  source = "modules/vpc"
+  source = "../modules/vpc"
 
   source_ranges = "${var.source_ranges}"
 }
 
 module "app" {
-  source = "modules/app"
+  source = "../modules/app"
 
-  public_key_path  = "${var.public_key_path}"
-  private_key_path = "${var.private_key_path}"
   zone             = "${var.zone}"
   count            = "${var.count}"
   app_disk_image   = "${var.app_disk_image}"
+  public_key_path  = "${var.public_key_path}"
+  private_key_path = "${var.private_key_path}"
 }
 
 module "db" {
-  source = "modules/db"
+  source = "../modules/db"
 
-  public_key_path = "${var.public_key_path}"
   zone            = "${var.zone}"
   db_disk_image   = "${var.db_disk_image}"
+  public_key_path = "${var.public_key_path}"
 }

@@ -1,0 +1,6 @@
+count = 2
+disk_image = "reddit-base"
+project = "your_project_id"
+source_ranges = ["0.0.0.0./0"]
+private_key_path = "~/.ssh/appuser"
+public_key_path = "~/.ssh/appuser.pub"
