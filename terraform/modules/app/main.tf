@@ -35,9 +35,9 @@ resource "google_compute_instance" "app" {
     destination = "/tmp/puma.service"
   }
 
-  # provisioner "remote-exec" {
-  #   script = "files/deploy.sh"
-  # }
+  provisioner "remote-exec" {
+    script = "files/deploy.sh"
+  }
 }
 
 resource "google_compute_firewall" "app_ip" {
