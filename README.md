@@ -144,7 +144,7 @@ resource "google_compute_project_metadata" "default" {
 #### Обратите внимание
 * Балансировка происходит между двумя независимымы инстансами, не имеющих единую базу данных. Поэтому в случае выключения первого инстанса, данные с него будут не доступны на втором инстансе.
 
-## Homework #7
+## Homework #8
 ### Результат выполнения плейбука
 ```
 (.venv) ubuntu@home-pc-win8:/mnt/d/Git/OTUS/webdl_infra/ansible$ ansible-playbook clone.yml
