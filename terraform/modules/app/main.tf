@@ -23,29 +23,29 @@ resource "google_compute_instance" "app" {
     }
   }
 
-  connection {
-    type        = "ssh"
-    user        = "appuser"
-    agent       = "false"
-    private_key = "${file(var.private_key_path)}"
-  }
+  # connection {
+  #   type        = "ssh"
+  #   user        = "appuser"
+  #   agent       = "false"
+  #   private_key = "${file(var.private_key_path)}"
+  # }
 
-  provisioner "file" {
-    source      = "${path.module}/files/puma.service"
-    destination = "/tmp/puma.service"
-  }
+  # provisioner "file" {
+  #   source      = "${path.module}/files/puma.service"
+  #   destination = "/tmp/puma.service"
+  # }
 
-  provisioner "file" {
-    source      = "${path.module}/files/deploy.sh"
-    destination = "/tmp/deploy.sh"
-  }
+  # provisioner "file" {
+  #   source      = "${path.module}/files/deploy.sh"
+  #   destination = "/tmp/deploy.sh"
+  # }
 
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/deploy.sh",
-      "/tmp/deploy.sh ${var.db_host}:${var.db_port}",
-    ]
-  }
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "chmod +x /tmp/deploy.sh",
+  #     "/tmp/deploy.sh ${var.db_host}:${var.db_port}",
+  #   ]
+  # }
 }
 
 resource "google_compute_firewall" "app_ip" {
