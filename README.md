@@ -144,6 +144,31 @@ resource "google_compute_project_metadata" "default" {
 #### Обратите внимание
 * Балансировка происходит между двумя независимымы инстансами, не имеющих единую базу данных. Поэтому в случае выключения первого инстанса, данные с него будут не доступны на втором инстансе.
 
+## Homework #7
+### Задание со *
+Для выполнения задания был создан Google Cloud Storage Bucket. После чего разной конфигурацией файлов backend.tf состояние terraform было вынесено в каталоги terrarorm/stage и terraform/prod соответственно.
+#### Одновременное выполнение terraform apply с одним state файлом
+В результате получаем ошибку:
+```
+$ terraform apply
+Acquiring state lock. This may take a few moments...
+
+Error: Error locking state: Error acquiring the state lock: writing "gs://webdl-tf-state/terraform/stage/default.tflock" failed: googleapi: Error 412: Precondition Failed, conditionNotMet
+Lock Info:
+  ID:        1541373424497035
+  Path:      gs://webdl-tf-state/terraform/stage/default.tflock
+  Operation: OperationTypeApply
+  Who:       ubuntu@home-pc-win8
+  Version:   0.11.10
+  Created:   2018-11-04 23:17:05.4240959 +0000 UTC
+  Info:
+
+Terraform acquires a state lock to protect the state from being written
+by multiple users at the same time. Please resolve the issue above and try
+again. For most commands, you can disable locking with the "-lock=false"
+flag, but this is not recommended.
+```
+
 ## Homework #8
 ### Результат выполнения плейбука
 ```

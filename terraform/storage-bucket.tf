@@ -7,7 +7,7 @@ provider "google" {
 module "storage-bucket" {
   source  = "SweetOps/storage-bucket/google"
   version = "0.1.1"
-  name    = ["webdl-storage-bucket-test", "webdl-storage-bucket-test-2"]
+  name    = ["webdl-tf-state"]
 }
 
 output storage-bucket-url {
