@@ -146,7 +146,7 @@ resource "google_compute_project_metadata" "default" {
 
 ## Homework #7
 ### Задание со *
-Для выполнения задания был создан вручную Google Cloud Storage Bucket. После чего разной конфигурацией файлов backend.tf состояние terraform было вынесено в каталоги terrarorm/stage и terraform/prod соответственно.
+Для выполнения задания был создан Google Cloud Storage Bucket. После чего разной конфигурацией файлов backend.tf состояние terraform было вынесено в каталоги terrarorm/stage и terraform/prod соответственно.
 #### Одновременное выполнение terraform apply с одним state файлом
 В результате получаем ошибку:
 ```
