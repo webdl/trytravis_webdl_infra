@@ -193,16 +193,14 @@ appserver                  : ok=2    changed=1    unreachable=0    failed=0
 Скрипт использует настроенное окружение Terraform для сбора данных об инстансах.
 Поддерживаемые команды: --host <host_name>, --list
 #### Настройка окружения скрипта
-Перейдите в каталог ansible:
+Перейдите в каталог ansible и установить Virtualenv через pip:
 ```
 cd ansible/
-```
-Установить Virtualenv через pip:
-```
 pip install virtualenv
 ```
- Активируйте окружение и установите зависимости:
+Создадим каталог с окружением, активируйте окружение и установите зависимости
 ```
+virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
