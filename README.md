@@ -197,8 +197,13 @@ appserver                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 cd ansible/
 ```
-Установите зависимости:
+Установить Virtualenv через pip:
 ```
+pip install virtualenv
+```
+ Активируйте окружение и установите зависимости:
+```
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 Задайте через переменную окружения ```ENV``` среду, над которой будут проводиться работы. Возможные значения: stage, prod.
@@ -206,6 +211,8 @@ pip install -r requirements.txt
 export ENV=stage
 ```
 #### Использование
+Перед проверкой убедитесь, что у вас запущено stage или prog окружение в GCP.
+
 Для проверки воспользуйтесь командой:
 ```
 ansible -i inventory.py all -m ping
