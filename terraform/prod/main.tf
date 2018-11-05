@@ -29,6 +29,7 @@ module "app" {
   app_disk_image   = "${var.app_disk_image}"
   public_key_path  = "${var.public_key_path}"
   private_key_path = "${var.private_key_path}"
+  db_host          = "${module.db.internal_ip}"
 }
 
 module "db" {

@@ -20,3 +20,12 @@ variable app_disk_image {
   description = "Disk image for Reddit app"
   default     = "reddit-app-base"
 }
+
+variable db_host {
+  description = "Database host address"
+}
+
+variable db_port {
+  description = "Database port number"
+  default     = "27017"
+}

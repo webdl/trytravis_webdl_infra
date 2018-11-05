@@ -31,12 +31,20 @@ resource "google_compute_instance" "app" {
   }
 
   provisioner "file" {
-    source      = "../files/puma.service"
+    source      = "${path.module}/files/puma.service"
     destination = "/tmp/puma.service"
   }
 
+  provisioner "file" {
+    source      = "${path.module}/files/deploy.sh"
+    destination = "/tmp/deploy.sh"
+  }
+
   provisioner "remote-exec" {
-    script = "../files/deploy.sh"
+    inline = [
+      "chmod +x /tmp/deploy.sh",
+      "/tmp/deploy.sh ${var.db_host}:${var.db_port}",
+    ]
   }
 }
 

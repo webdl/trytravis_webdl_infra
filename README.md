@@ -163,7 +163,6 @@ Lock Info:
   Created:   2018-11-04 23:17:05.4240959 +0000 UTC
   Info:
 
-
 Terraform acquires a state lock to protect the state from being written
 by multiple users at the same time. Please resolve the issue above and try
 again. For most commands, you can disable locking with the "-lock=false"
