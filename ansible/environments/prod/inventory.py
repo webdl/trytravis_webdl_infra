@@ -35,11 +35,7 @@ def arg_host(tf, hostname):
 
 
 if __name__ == '__main__':
-    if 'ENV' not in os.environ.keys() or os.environ['ENV'] not in ['stage', 'prod']:
-        print "Please provide an ENV environment variable with key 'stage' or 'prod'"
-        exit(1)
-
-    tf = Terraform(working_dir='../terraform/{}'.format(os.environ['ENV']))
+    tf = Terraform(working_dir='../terraform/prod')
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--host')
