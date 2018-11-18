@@ -24,7 +24,7 @@
     {
       "type": "ansible",
       "user": "appuser",
-      "playbook_file": "ansible/playbooks/db.yml"
+      "playbook_file": "ansible/playbooks/packer_db.yml"
     }
   ]
 }

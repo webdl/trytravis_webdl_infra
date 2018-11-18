@@ -10,6 +10,6 @@
         update_cache: yes
       vars:
         packages:
-          - ruby-full 
-          - ruby-bundler 
+          - ruby-full
+          - ruby-bundler
           - build-essential
