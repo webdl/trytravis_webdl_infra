@@ -14,6 +14,7 @@ variables*.json
 
 # Ansible
 *.retry
+*.swp
 
 # Ansible Community Roles
 jdauphant.nginx
