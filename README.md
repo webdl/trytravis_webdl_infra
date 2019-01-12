@@ -1,7 +1,7 @@
 # webdl_infra
 webdl Infra repository
 
-## Homework #3
+## Homework #5
 ### Подключение к хосту someinternalhost в одну строку
 #### Добавляем ключ к ssh агенту (делается один раз после старта системы)
 ```
@@ -43,7 +43,7 @@ Host someinternalhost
 bastion_IP = 35.204.92.194
 someinternalhost_IP = 10.164.0.3
 ```
-## Homework #4
+## Homework #6
 ### Команды для запуска инстанса VM
 #### С использованием startup-script
 ```
@@ -99,7 +99,7 @@ testapp_IP = 35.204.144.232
 testapp_port = 9292
 ```
 
-## Homework #5
+## Homework #7
 ### Что было сделано
 * Выполнено домашнее задание
 * Выполнена самостоятельная работа
@@ -124,7 +124,7 @@ cd ../config-scripts/
 ### Как проверить работоспособность:
  - Перейти по ссылке http://<EXTERNAL_IP>:9292
 
-## Homework #6
+## Homework #8
 ### Задание со *
 #### Добавление нескольких ключей к проекту
 ```
@@ -144,7 +144,7 @@ resource "google_compute_project_metadata" "default" {
 #### Обратите внимание
 * Балансировка происходит между двумя независимымы инстансами, не имеющих единую базу данных. Поэтому в случае выключения первого инстанса, данные с него будут не доступны на втором инстансе.
 
-## Homework #7
+## Homework #9
 ### Задание со *
 Для выполнения задания был создан Google Cloud Storage Bucket. После чего разной конфигурацией файлов backend.tf состояние terraform было вынесено в каталоги terrarorm/stage и terraform/prod соответственно.
 #### Одновременное выполнение terraform apply с одним state файлом
@@ -169,7 +169,7 @@ again. For most commands, you can disable locking with the "-lock=false"
 flag, but this is not recommended.
 ```
 
-## Homework #8
+## Homework #10
 ### Результат выполнения плейбука
 ```
 (.venv) ubuntu@home-pc-win8:/mnt/d/Git/OTUS/webdl_infra/ansible$ ansible-playbook clone.yml
@@ -227,7 +227,7 @@ reddit-app-0 | SUCCESS => {
 }
 ```
 
-## Homework #8
+## Homework #11
 ### Что было сделано
 * Созданы плейбуки для настройки приложения и базы данных
 * Плейбуки разделены на несколько файлов и объединены одним плейбуком с использованием import_playbook
