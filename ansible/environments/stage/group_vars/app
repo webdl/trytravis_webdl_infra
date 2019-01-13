@@ -1,4 +1,4 @@
-db_host: 10.164.0.4
+db_host: 10.164.0.6
 db_port: 27017
 
 nginx_sites:
