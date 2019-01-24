@@ -6,12 +6,12 @@ provider "google" {
 
 resource "google_compute_project_metadata" "default" {
   metadata {
-    # ssh-keys = "appuser:${file(var.public_key_path)}tk:${file(var.public_key_path)}"
+    ssh-keys = "appuser:${file(var.public_key_path)}tk:${file(var.public_key_path)}"
 
     # Использование EOF не нравится tflint!
-    ssh-keys = <<EOF
-tk:${file(var.public_key_path)}
-appuser:${file(var.public_key_path)}EOF
+    # ssh-keys = <<EOF
+# tk:${file(var.public_key_path)}
+# appuser:${file(var.public_key_path)}EOF
   }
 }
 

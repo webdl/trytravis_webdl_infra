@@ -1,4 +1,4 @@
-count = 2
+count = 1
 disk_image = "reddit-base"
 project = "your_project_id"
 source_ranges = ["0.0.0.0./0"]

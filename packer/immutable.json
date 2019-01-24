@@ -26,7 +26,7 @@
   "provisioners": [
     {
       "type": "file",
-      "source": "files/reddit.service",
+      "source": "packer/files/reddit.service",
       "destination": "/tmp/reddit.service"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "type": "shell",
-      "script": "scripts/deploy.sh",
+      "script": "packer/scripts/deploy.sh",
       "execute_command": "sudo {{.Path}}"
     }
   ]
