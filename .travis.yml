@@ -3,6 +3,9 @@ sudo: required
 language: bash
 before_install: 
   - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh | bash
+install:
+  - scripts/install-environment.sh
+script:
   - scripts/run-tests.sh
 notifications:
   slack:
