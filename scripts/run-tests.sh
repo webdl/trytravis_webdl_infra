@@ -1,8 +1,11 @@
 #!/bin/bash
 set -e
 
+export PATH=/usr/local/tflint/bin:$PATH
 PROJECT_PATH=`pwd`
 
+echo "!!!!!!!!!!!!!!"
+echo $PATH
 echo "******************************"
 echo "Run Travis Tests"
 echo "******************************"
